@@ -42,6 +42,8 @@ Authenticate to AWS from your local terminal, then run:
 
 ```bash
 terraform apply -auto-approve
+git add .
+git commit -m "Added README and finalized project"
+git push
 
 
----
