@@ -1,7 +1,7 @@
 name: DevSecOps Quality Gate
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -17,6 +17,5 @@ jobs:
       - name: Run tfsec
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
-          tfsec_args: --soft-fail=false
-          working_directory: Lab34
+          tfsec_args: ./Lab34
           github_token: ${{ secrets.GITHUB_TOKEN }}
