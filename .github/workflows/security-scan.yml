@@ -17,5 +17,5 @@ jobs:
       - name: Run tfsec
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
-          tfsec_args: ./Lab34 --soft-fail=false
+          tfsec_args: --soft-fail=false ./Lab34
           github_token: ${{ secrets.GITHUB_TOKEN }}
