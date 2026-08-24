@@ -1,3 +1,4 @@
+# force reload
 name: DevSecOps Quality Gate
 
 on:
