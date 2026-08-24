@@ -106,22 +106,23 @@ resource "aws_security_group" "web_sg" {
 # ---------------------------
 
 resource "aws_instance" "web_server" {
-  ami                    = "ami-0e2c8caa4b6378d49" # Amazon Linux 2023 (us-east-1)
-  instance_type          = "t2.micro"
-  subnet_id              = aws_subnet.public_subnet.id
-  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  ami                         = "ami-0fc5d935ebf8bc3bc" # Ubuntu Server 22.04 LTS (us-east-1)
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.public_subnet.id
+  vpc_security_group_ids      = [aws_security_group.web_sg.id]
   associate_public_ip_address = true
 
   user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl enable httpd
-              systemctl start httpd
-              EOF
+    #!/bin/bash
+    apt update -y
+    apt install -y apache2
+    systemctl enable apache2
+    systemctl start apache2
+    echo "<h1>TKH Web Server is Live</h1>" > /var/www/html/index.html
+    reboot
+  EOF
 
   tags = {
     Name = "tkh-web-server"
   }
 }
-# test
