@@ -124,3 +124,4 @@ resource "aws_instance" "web_server" {
     Name = "tkh-web-server"
   }
 }
+# test
