@@ -36,7 +36,7 @@ This architecture ensures controlled access, automated provisioning, and a funct
 
 ---
 
-## Phase 1: Deployment & Verification
+## Deployment & Verification
 ### **The Deployment**
 Authenticate to AWS from your local terminal, then run:
 
